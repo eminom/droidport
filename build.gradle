@@ -12,11 +12,10 @@ android {
     }
 
     sourceSets.main {
-        aidl.srcDir "src"
         java.srcDir "src"
         res.srcDir "res"
         jniLibs.srcDir "libs"
-        manifest.srcFile "src/main/AndroidManifest.xml"
+        manifest.srcFile "AndroidManifest.xml"
     }
 
     buildTypes {
