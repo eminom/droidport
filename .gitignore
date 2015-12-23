@@ -1,3 +1,7 @@
 /libs
 /obj
 /build
+/bin
+/gen
+local.properties
+proguard-project.txt
