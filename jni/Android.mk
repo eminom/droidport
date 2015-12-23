@@ -7,8 +7,8 @@ LOCAL_MODULE := droidport_shared
 LOCAL_MODULE_FILENAME := libdroidport
 
 LOCAL_SRC_FILES := \
-../src/droidport.cc \
-../src/DroidWrapper.cc 
+src/droidport.cc \
+src/DroidWrapper.cc 
 
 LOCAL_LDLIBS := -llog
 
