@@ -23,9 +23,23 @@ public:
 	static JavaVM* getVM();
 	static JNIEnv* getEnv();
 
+	static bool getMethodInfo(DroidMethodCache&
+		, const char *className
+		, const char *methodName
+		, const char *sigCode);
+	
+	static bool getStaticMethodInfo(DroidMethodCache&
+		, const char *className
+		, const char *methodName
+		, const char *sigCode);
+
+	static bool attachClassLoaderFromObj(jobject ooo);
 
 private:
-	static JavaVM *_vm;
+	static bool getMethodInfoDefault(DroidMethodCache&
+		, const char *className
+		, const char *methodName
+		, const char *sigCode);
 };
 
 
