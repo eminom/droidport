@@ -106,7 +106,6 @@ DroidWrapper::getMethodInfo(DroidMethodCache& mi,
 	jclass clsid = _getClassID(className);
 	if( ! clsid ){
 		LOGE("Failed to find class <%s>", className);
-		env->ExceptionClear();
 		return false;
 	}
 
@@ -134,7 +133,7 @@ DroidWrapper::getMethodInfoDefault(DroidMethodCache& mi
 		return false;
 	}
 
-	JNIEnv *env = DroidWrapper::getEnv();
+	JNIEnv *env = getEnv();
 	if(!env)
 		return false;
 
@@ -147,7 +146,7 @@ DroidWrapper::getMethodInfoDefault(DroidMethodCache& mi
 
 	jmethodID methodID = env->GetMethodID(clzid, methodName, sigCode);
 	if(!methodID){
-		LOGE("Failed to find method %s for class<%s>", methodName, className);
+		LOGE("Failed to find method %s for class <%s>", methodName, className);
 		env->ExceptionClear();
 		return false;
 	}
@@ -193,10 +192,10 @@ bool DroidWrapper::attachClassLoaderFromObj(jobject ooo){
 bool DroidWrapper::getStaticMethodInfo(DroidMethodCache &mi,
                                     const char *className, 
                                     const char *methodName,
-                                    const char *paramCode) {
+                                    const char *sigCode) {
     if ((nullptr == className) ||
         (nullptr == methodName) ||
-        (nullptr == paramCode)) {
+        (nullptr == sigCode)) {
         return false;
     }
 
@@ -209,11 +208,10 @@ bool DroidWrapper::getStaticMethodInfo(DroidMethodCache &mi,
     jclass classID = _getClassID(className);
     if (! classID) {
         LOGE("Failed to find class %s", className);
-        env->ExceptionClear();
         return false;
     }
 
-    jmethodID methodID = env->GetStaticMethodID(classID, methodName, paramCode);
+    jmethodID methodID = env->GetStaticMethodID(classID, methodName, sigCode);
     if (! methodID) {
         LOGE("Failed to find static method id of %s in class<%s>", methodName, className);
         env->ExceptionClear();
