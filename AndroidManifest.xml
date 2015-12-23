@@ -1,5 +1,9 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.cocos2dx.lib">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.haibai.libdroidport"
+    android:versionCode="1"
+    android:versionName="1.0">
 
-    <application android:allowBackup="true"/>
+    <uses-sdk android:minSdkVersion="10"/>
 
-</manifest>
+</manifest> 
