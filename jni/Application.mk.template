@@ -11,5 +11,5 @@ else
   APP_OPTIM := release
 endif
 
-#APP_ABI := x86
+APP_ABI := ${AppABI}
 APP_PLATFORM := android-19
